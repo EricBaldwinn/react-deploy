@@ -5,12 +5,12 @@ function rollDice(percentage) {
 
 function chanceToWin(startingAmt, betamount, numberofbets, percentage) {
     for (let x = 0; x < numberofbets; x++) {
-        // console.log('current bet amount', startingAmt)
+        console.log('current bet amount', startingAmt)
         if (startingAmt >= betamount) {
             if (rollDice(percentage)) {
-                startingAmt += betamount * 2;
+                startingAmt += betamount;
             } else {
-                startingAmt -= betamount * 2;
+                startingAmt -= betamount;
             }
         }
     }
@@ -23,7 +23,7 @@ export function total(totalRuns, startingAmt, betAmount, numberOfBets, percentag
     let totalLosses = 0;
     for (let x = 0; x < Number(totalRuns); x++) {
         let currentbet = chanceToWin(Number(startingAmt), Number(betAmount), Number(numberOfBets), Number(percentage));
-        // console.log('ending amount ', currentbet)
+        console.log('ending amount ', currentbet)
         if (currentbet === 0) {
             totalLosses += 1
         } else {
