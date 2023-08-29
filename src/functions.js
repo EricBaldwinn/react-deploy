@@ -24,7 +24,7 @@ export function total(totalRuns, startingAmt, betAmount, numberOfBets, percentag
     for (let x = 0; x < Number(totalRuns); x++) {
         let currentbet = chanceToWin(Number(startingAmt), Number(betAmount), Number(numberOfBets), Number(percentage));
         // console.log('ending amount ', currentbet)
-        if (currentbet === 0) {
+        if (currentbet < betAmount) {
             totalLosses += 1
         } else {
             total += currentbet
